@@ -315,7 +315,8 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
    return arr.reduce((accumulator, currentValue) => currentValue>0 ?  accumulator++ : 0 );
-        
+   ////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////     
 
 }
  
@@ -333,7 +334,6 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
 }
 
 /** 
