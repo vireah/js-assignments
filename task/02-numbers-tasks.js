@@ -22,7 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    throw new Error('Not implemented');
+    return width * height;
 }
 
 
@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+    return 2 * Math.PI * radius;
 }
 
 /**
@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    throw new Error('Not implemented');
+    return value2 + (value1 - value2) / 2;
 }
 
 /**
@@ -73,7 +73,9 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+    let a = x1 - x2;
+    let b = y1 - y2;
+    return Math.sqrt( a*a + b*b );
 }
 
 /**
@@ -127,7 +129,8 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    throw new Error('Not implemented');
+  return value.toString().split('').pop();
+
 }
 
 
@@ -143,7 +146,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    throw new Error('Not implemented');
+return value.split();
 }
 
 /**
@@ -202,7 +205,30 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
+    if (n % 1 !== 0) {
+        return false;
+      }
+    
+      if (n <= 1) {
+        return false;
+      }
+    
+      if (n <= 3) {
+        return true;
+      }
+    
+      if (n % 2 === 0) {
+        return false;
+      }
+    
+      const dividerLimit = Math.sqrt(n);
+      for (let divider = 3; divider <= dividerLimit; divider += 2) {
+        if (n % divider === 0) {
+          return false;
+        }
+      }
+    
+      return true;
 }
 
 /**
@@ -221,7 +247,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+    return value.split(" ");
 }
 
 module.exports = {
