@@ -315,7 +315,7 @@ function get3TopItems(arr) {
  */
 function getPositivesCount(arr) {
     return arr.reduce((acc, cur) => { return (cur > 0) ? ++acc : acc; }, 0);
-
+//
 }
  
 /** 
