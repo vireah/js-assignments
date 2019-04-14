@@ -430,23 +430,9 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-    function compare(a,b) {
-        if (a.country < b.country)
-          return -1;
-        if (a.country > b.country)
-          return 1;
-        return 0;
-      }
-    function compare(a,b) {
-        if (a.city < b.city)
-          return -1;
-        if (a.city > b.city)
-          return 1;
-        return 0;
-      }
-      
-      
-    return  arr.sort(compare);
+    let newa = arr.sort((a, b) => a.country.localeCompare(b.country));
+    newa.sort((a, b) => a.city.localeCompare(b.city));
+    return  arr;
 }
 
 /**
@@ -468,7 +454,11 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+    return Array(n).fill(0).map(function(elem, i) {
+        return Array(n).fill(0).map(function(elem2, j) {
+          return 1 - Math.min(Math.abs(i-j),1);
+        });
+      });
 }
 
 /**
@@ -485,8 +475,7 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-    len = {length: arr.length};
-    return Array.from(len, (v, i) => i * 2 + 1);
+    return Array(end - start + 1).fill().map((_, idx) => start + idx);
 }
 
 /**
@@ -501,7 +490,10 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+    function onlyUnique(value, index, self) { 
+        return self.indexOf(value) === index;
+    }
+    return arr.filter(onlyUnique);
 }
 
 /**
@@ -551,7 +543,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    return arr.reduce((acc, cur) => acc.concat(childrenSelector(cur)), []);
 }
 
 
@@ -568,7 +560,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+    return arr.Array(indexes).fill(Array(indexes).fill(0));
 }
 
 
@@ -591,7 +583,12 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    let l = arr.length;
+    let r = Math.round(l / 2);
+    let f = Math.floor(l / 2);
+    let a = arr.splice(0, f);
+    let b = arr.splice(r - f);
+    return b.concat(arr, a);
 }
 
 
