@@ -297,7 +297,7 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    return num - 9 * Math.floor((num - 1) / 9)
 }
 
 
@@ -323,7 +323,18 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
+    const open = ['[', '{', '(', '<'];
+    const close = [']', '}', ')', '>'];
+    const stack = [];
+    let len = str.length;
+    for (let i = 0; i < len; i++) {
+        if (open.indexOf(str[i]) !== -1) {
+            stack.push(str[i]);
+        } else if (open.indexOf(stack.pop()) !== close.indexOf(str[i])) {
+            return false;
+        }
+    }
+    return !(stack.length);
 }
 
 
@@ -383,7 +394,8 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
+
 }
 
 

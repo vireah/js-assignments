@@ -314,8 +314,8 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-    return arr.reduce((acc, cur) => { return (cur > 0) ? ++acc : acc; }, 0);
-//
+    return arr.reduce((acc, cur) => { return (cur > 0) ? acc++ : acc; }, 0);
+  
 }
  
 /** 
@@ -332,6 +332,8 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
+    const digitals = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+        return arr.sort((a, b) => digitals.indexOf(a) - digitals.indexOf(b));
 }
 
 /** 
