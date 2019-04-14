@@ -278,8 +278,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-    len = {length: arr.length};
-    return Array.from(len, (v, i) => i * 2 + 1);
+    return arr.reduce((acc, cur, ind) => acc.concat(Array.from({length: ind + 1}, () => cur)), []);
 }
 
 
@@ -315,9 +314,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   return arr.reduce((accumulator, currentValue) => currentValue>0 ?  accumulator++ : 0 );
-   ////////////////////////////////////////////////////////////////////////////////////////////
-   ////////////////////////     
+    return arr.reduce((acc, cur) => { return (cur > 0) ? ++acc : acc; }, 0);
 
 }
  
@@ -572,7 +569,6 @@ function getElementByIndexes(arr, indexes) {
  *  
  * @param {array} arr
  * @return {array}
- * 
  * @example
  *   [ 1, 2, 3, 4, 5 ]   =>  [ 4, 5, 3, 1, 2 ]
  *    \----/   \----/         
