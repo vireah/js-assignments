@@ -366,7 +366,9 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   //const falsy = [false, 0, "", null, undefined,  NaN];
+   let b = arr.filter(n => n ? 0 : 1);
+   return b.length;
 }
 
 /**
@@ -384,7 +386,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+    return arr.reduce((acc, cur) => acc + (cur !== item ? 0 : 1) , 0);
 }
 
 /**
@@ -399,7 +401,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.toString();
 }
 
 
@@ -428,7 +430,23 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+    function compare(a,b) {
+        if (a.country < b.country)
+          return -1;
+        if (a.country > b.country)
+          return 1;
+        return 0;
+      }
+    function compare(a,b) {
+        if (a.city < b.city)
+          return -1;
+        if (a.city > b.city)
+          return 1;
+        return 0;
+      }
+      
+      
+    return  arr.sort(compare);
 }
 
 /**
